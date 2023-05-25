@@ -3,3 +3,4 @@ export const REGISTER_PAGE = '/register'
 export const MAIN_PAGE = '/'
 
 export const ADMIN_PAGE = '/admin'
+export const HISTORY_PAGE = '/history'

@@ -13,7 +13,7 @@ const DeleteCar = observer(({show, onHide}) => {
             alert(requiest.message)
             onHide()
     }
-    const {data} = $host.get("/cars")
+    // const {data} = $host.get("/cars")
     return (
         <Modal
             show={show}
@@ -26,15 +26,15 @@ const DeleteCar = observer(({show, onHide}) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form.Select aria-label="Default select example" onChange={(e)=>setNumber(e.target.value)}>
-                    {data.map(car => <option value={car.number}>{car.number}</option>)}
-                </Form.Select>
+                {/*<Form.Select aria-label="Default select example" onChange={(e)=>setNumber(e.target.value)}>*/}
+                {/*    {data.map(car => <option value={car.number}>{car.number}</option>)}*/}
+                {/*</Form.Select>*/}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Close</Button>
                 <Button variant="outline-success" onClick={() => {
                     submit()
-                }}>Add</Button>
+                }}>Delete</Button>
             </Modal.Footer>
         </Modal>
     );

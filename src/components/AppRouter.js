@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Switch, Route, Redirect} from "react-router-dom";
 import {adminRoutes, authRoutes, publicRoutes} from "../routes";
 import {LOGIN_PAGE, MAIN_PAGE} from "../utils/const";
@@ -9,8 +9,12 @@ import {$authHost} from "../http/axiosAPI";
 
 const AppRouter = observer(() => {
     const {user} = useContext(Context)
-    const {data} = $authHost.get("/admin")
-    user.setIsAdmin(true)
+    useEffect(() => {
+        $authHost.get("/admin").then((data) => {
+            user.setIsAdmin(data)
+        })
+    },[])
+
     return (<Switch>
             {publicRoutes.map(({path, Component}) => <Route key={path} path={path} component={Component} exact/>)}
             {user.isAuth && authRoutes.map(({path, Component}) => <Route key={path} path={path} component={Component}

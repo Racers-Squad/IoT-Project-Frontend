@@ -24,5 +24,7 @@ export default class CarsStore {
         this.cars = cars
     }
 
-
+    addCar(car){
+        this._cars.push(car)
+    }
 }

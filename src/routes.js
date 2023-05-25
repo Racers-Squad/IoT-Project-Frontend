@@ -1,8 +1,9 @@
-import {ADMIN_PAGE, LOGIN_PAGE, MAIN_PAGE, REGISTER_PAGE} from "./utils/const";
+import {ADMIN_PAGE, HISTORY_PAGE, LOGIN_PAGE, MAIN_PAGE, REGISTER_PAGE} from "./utils/const";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MainPage from "./pages/MainPage";
 import AdminPage from "./pages/AdminPage";
+import HistoryPage from "./pages/HistoryPage";
 
 
 export const publicRoutes = [
@@ -17,7 +18,9 @@ export const publicRoutes = [
 export const authRoutes = [
     {
         path: MAIN_PAGE, Component: MainPage
-    },
+    },{
+    path: HISTORY_PAGE, Component: HistoryPage
+    }
 ]
 
 export const adminRoutes = [{

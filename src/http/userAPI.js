@@ -26,7 +26,3 @@ export const check = async () => {
         localStorage.setItem('token', '')
     }
 }
-export const checkAdmin = async (email) => {
-    const {data} = await $authHost.get('/checkAdmin/' + email)
-    return data.adminRight
-}

@@ -9,11 +9,11 @@ import TypeBar from "../components/TypeBar";
 const MainPage = observer(() => {
     const {cars} = useContext(Context)
 
-    useEffect(() => {
-        $host.get('/cars').then((response) => {
-            cars.setCars(response.data)
-        })
-    })
+    // useEffect(() => {
+    //     $host.get('/cars').then((response) => {
+    //         cars.setCars(response.data)
+    //     })
+    // })
 
 
     return (<Row className="g-0">

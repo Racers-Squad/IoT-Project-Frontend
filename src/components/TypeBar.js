@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const TypeBar = observer(() => {
     const {cars} = useContext(Context)
-    console.log(cars.cars)
     return (<Card style={{
         width: 230, boxShadow: "5px 5px 100px 5px rgba(34, 60, 80, 0.2)", left: 0, marginLeft: 35, marginTop: 50
     }}>

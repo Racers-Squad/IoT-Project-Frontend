@@ -3,7 +3,7 @@ import {Button, Nav, Navbar} from "react-bootstrap";
 import {NavLink, useHistory} from "react-router-dom";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
-import {ADMIN_PAGE, LOGIN_PAGE, MAIN_PAGE} from "../utils/const";
+import {ADMIN_PAGE, HISTORY_PAGE, LOGIN_PAGE, MAIN_PAGE} from "../utils/const";
 import 'bootstrap/dist/css/bootstrap.css';
 
 const NavBar = observer(() => {
@@ -24,7 +24,12 @@ const NavBar = observer(() => {
                     history.push(MAIN_PAGE)
                 }} style={{marginLeft: 20, textDecoration: 'none'}}
                 >Main</Button></Nav>
-            {user.isAuth && user.isAdmin && <Nav><Button variant="secondary" onClick={() => {
+            <Nav className="justify-content-center">
+                <Button variant="light" onClick={() => {
+                    history.push(HISTORY_PAGE)
+                }} style={{marginRight: 20, textDecoration: 'none'}}
+                >History</Button></Nav>
+            {user.isAuth && user.isAdmin && <Nav><Button variant="light" style={{marginRight: 30}} onClick={() => {
                 history.push(ADMIN_PAGE)
             }}>Админ панель</Button></Nav>}
             <Nav
