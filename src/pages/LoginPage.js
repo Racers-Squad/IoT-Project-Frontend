@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {Button, Card, Container, Form} from "react-bootstrap";
-import {MAIN_PAGE, REGISTER_PAGE} from "../utils/const";
+import {MAIN_PAGE} from "../utils/const";
 import {useHistory} from "react-router-dom";
 import "./css/LoginPage.css"
 import {login} from "../http/userAPI";
@@ -29,7 +29,7 @@ const LoginPage = observer(() => {
     }
 
     return (<Container id="flex-container">
-        <Card id="form" className="align-items-center">
+        <Card id="form" className="align-items-center" style={{padding: 20}}>
             <h1 style={{fontSize: 40, marginBottom: 20, marginTop: 10}}>Racers Squad</h1>
             <h2 className="m-auto">Вход</h2>
             <Form className="d-flex flex-column">
@@ -45,14 +45,9 @@ const LoginPage = observer(() => {
                                   type="password" onChange={e => setPassword(e.target.value)}></Form.Control>
                 </Form.Group>
                 <Button className="w-20 align-self-center" variant="secondary" color="gray"
-                        style={{marginLeft: 10, marginRight: 10, width: 100, height: 40}} onClick={() => {
+                        style={{marginLeft: 10, marginRight: 10, width: 100, height: 40, paddingBottom:10}} onClick={() => {
                     click()
                 }}>Вход</Button>
-                <a onClick={() => {
-                    history.push(REGISTER_PAGE)
-                }} className="align-self-center mt-3 mb-3"
-                   style={{fontSize: 17, color: "black", textDecoration: "none", cursor: "pointer"}}>У меня нету
-                    аккаунта</a>
             </Form>
         </Card>
     </Container>);

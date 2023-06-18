@@ -3,13 +3,16 @@ import {makeAutoObservable} from "mobx";
 export default class CarsStore {
 
     constructor() {
-        this._cars = [{id:0, name: "solyarka", number:"ad123d/02"},{id:1, name: "jigulca", number:"zx456c/05"},{id:2, name: "polik", number:"as456s/01"}]
-        this._selected = {}
+        this._cars = []
+        this._selected = {id:0}
         makeAutoObservable(this)
     }
 
     get cars() {
         return this._cars
+    }
+    setSelectedCarStatus(status){
+        this._selected.status = status
     }
 
     get selectedCar() {
@@ -21,7 +24,7 @@ export default class CarsStore {
         this._selected = value;
     }
     setCars(cars) {
-        this.cars = cars
+        this._cars = cars
     }
 
     addCar(car){

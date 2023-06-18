@@ -14,7 +14,7 @@ const App = observer(() => {
     useEffect(() => {
         check().then((data) => {
             if (data !== "LOGOUT") {
-                let user1 = {email: data.sub};
+                let user1 = {email: data[0].sub, reservationId: data[1]};
                 user.setUser(user1);
                 user.setIsAuth(true)
             } else {

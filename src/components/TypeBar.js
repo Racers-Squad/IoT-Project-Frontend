@@ -14,12 +14,12 @@ const TypeBar = observer(() => {
             color="primary"
             label="Категории" style={{height: 500}} activeKey="0">
             {cars.cars.map(car => <ListGroup.Item id={car.id} style={{
-                height: 50, paddingBottom: 5, paddingTop: 5, cursor: "pointer"
+                height: 50, paddingBottom: 5, paddingTop: 5, cursor: "pointer", fontSize:15
             }}
                                                   active={car.id === cars.selectedCar.id}
                                                   onClick={() => cars.setSelectedCar(car)}
                                                   value={car.id}
-                                                  key={car.id}>{car.number}   ({car.name})</ListGroup.Item>)}
+                                                  key={car.id}>{car.id}   ({car.carBrand})</ListGroup.Item>)}
 
         </ListGroup>
     </Card>);

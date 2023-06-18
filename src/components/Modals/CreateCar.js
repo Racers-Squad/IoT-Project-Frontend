@@ -17,7 +17,7 @@ const CreateCar = observer(({show, onHide}) => {
             const requiest = addCar(number, selectedBrand)
             console.log(requiest.data)
             if (requiest.data === "Car added.") {
-                cars.addCar({carNumber: number, carBrand: selectedBrand})
+                cars.addCar({id: number, carBrand: selectedBrand})
             }
             onHide()
         } else {

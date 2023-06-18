@@ -4,12 +4,16 @@ export default class UserStore {
     constructor() {
         this._isAuth = false
         this._isAdmin = false
-        this._user = {email: ''}
+        this._user = {email: '',reservationId: ''}
         makeAutoObservable(this)
     }
 
     setIsAuth(bool) {
         this._isAuth = bool
+    }
+
+    setReservationId(id){
+        this._user.reservationId =  id
     }
 
 

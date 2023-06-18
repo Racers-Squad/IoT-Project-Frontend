@@ -1,8 +1,10 @@
 import axios from "axios"
+import delayAdapterEnhancer from 'axios-delay';
 
 
 const $host = axios.create({
-    baseURL: "http://localhost:8080"
+    baseURL: "http://localhost:8080",
+    adapter: delayAdapterEnhancer(axios.defaults.adapter)
 })
 
 const $authHost = axios.create({
