@@ -14,8 +14,6 @@ export const publicRoutes = [
 export const authRoutes = [
     {
         path: MAIN_PAGE, Component: MainPage
-    }, {
-        path: HISTORY_PAGE, Component: HistoryPage
     }
 ]
 
@@ -23,4 +21,6 @@ export const adminRoutes = [{
     path: MAIN_PAGE, Component: MainPage
 }, {
     path: ADMIN_PAGE, Component: AdminPage
+}, {
+    path: HISTORY_PAGE, Component: HistoryPage
 }]

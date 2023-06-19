@@ -13,7 +13,7 @@ const HistoryPage = () => {
     const [firstCar, setFirstCar] = useState('')
     const [startTime, setStartTime] = useState('')
     const [endTime, setEndTime] = useState('')
-    const [checked, setChecked] = useState('Trip');
+    const [checked, setChecked] = useState('TRIP');
     const [anal, setAnal] = useState("")
     const [pressed, setPressed] = useState(false)
 
@@ -44,7 +44,8 @@ const HistoryPage = () => {
     };
     return (<Container>
             <Col>
-                <Col style={{display: "flex"}}>
+                <Col style={{display: "flex"}} className="align-items-center">
+                    <h5 style={{textAlign: "center"}}>User:</h5>
                     <Dropdown>
                         <Dropdown.Button flat color="secondary" css={{tt: "capitalize", margin: 10}}>
                             {firstUser}
@@ -60,6 +61,7 @@ const HistoryPage = () => {
                             })}
                         </Dropdown.Menu>
                     </Dropdown>
+                    <h5 style={{textAlign: "center"}}>Car:</h5>
                     <Dropdown>
                         <Dropdown.Button flat color="secondary" css={{tt: "capitalize", margin: 10}}>
                             {firstCar}
@@ -110,6 +112,25 @@ const HistoryPage = () => {
                 }}> Analyze</Button>
             </Col>
             <Col style={{margin: 20}}>
+                {pressed && !!anal && (<Card style={{padding: 20, margin: 15}}>
+                        <Table striped bordered hover size="sm">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {Object.entries(anal.stats).map((data) => <tr>
+                                    <td key={data[0]}>{data[0]}</td>
+                                    <td key={data[1]}>{data[1]}</td>
+                                    {}
+                                </tr>
+                            )}
+                            </tbody>
+                        </Table>
+                    </Card>
+                )}
 
                 {pressed &&
                     !!anal &&
@@ -157,27 +178,13 @@ const HistoryPage = () => {
                                     </tbody>
                                 </Table>
                             </div>
+                            <div>
+                                <h5>Duration: {stat.duration} H</h5>
+                                <h5>EndLocation: {stat.endLocation}</h5>
+                                <h5>startLocation: {stat.startLocation}</h5>
+                            </div>
                         </Card>
                     ))}
-
-                {pressed && !!anal && (<Card style={{padding: 20, margin: 15}}>
-                        <Table striped bordered hover size="sm">
-                            <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Value</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {Object.entries(anal.stats).map((data) => <tr>
-                                    <td key={data[0]}>{data[0]}</td>
-                                    <td key={data[1]}>{data[1]}</td>
-                                </tr>
-                            )}
-                            </tbody>
-                        </Table>
-                    </Card>
-                )}
             </Col>
         </Container>
     )

@@ -11,7 +11,7 @@ const AppRouter = observer(() => {
     const {user} = useContext(Context)
     useEffect(() => {
         $authHost.get("/admin").then((data) => {
-            user.setIsAdmin(data)
+            user.setIsAdmin(data.data)
         })
     },[])
 

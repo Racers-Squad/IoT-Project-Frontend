@@ -16,7 +16,7 @@ const NavBar = observer(() => {
         user.setIsAuth(false)
         localStorage.setItem('token', '')
     }
-
+    console.log(user.isAdmin)
     return (
         <Navbar bg="dark" variant="light" className="align-items-end">
             <Nav className="justify-content-center me-auto">
@@ -24,11 +24,11 @@ const NavBar = observer(() => {
                     history.push(MAIN_PAGE)
                 }} style={{marginLeft: 20, textDecoration: 'none'}}
                 >Main</Button></Nav>
-            <Nav className="justify-content-center">
+            {user.isAdmin && <Nav className="justify-content-center">
                 <Button variant="light" onClick={() => {
                     history.push(HISTORY_PAGE)
                 }} style={{marginRight: 20, textDecoration: 'none'}}
-                >History</Button></Nav>
+                >Stats</Button></Nav>}
             {user.isAuth && user.isAdmin && <Nav><Button variant="light" style={{marginRight: 30}} onClick={() => {
                 history.push(ADMIN_PAGE)
             }}>Админ панель</Button></Nav>}

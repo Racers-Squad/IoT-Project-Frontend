@@ -21,8 +21,3 @@ export const check = async () => {
         localStorage.setItem('token', '')
     }
 }
-
-export const removeUser = async (id) => {
-    const response = await $host.post('/user/delete', {id})
-    return response.data
-}
